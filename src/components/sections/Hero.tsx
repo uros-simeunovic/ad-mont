@@ -1,4 +1,4 @@
-import heroImg from "@/assets/heroImage.webp";
+import heroImg from "@/assets/heroImage.jpg";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
