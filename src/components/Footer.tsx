@@ -2,10 +2,9 @@ import logo from "@/assets/AD mont logo 2.svg";
 import { Button } from "./ui/button";
 
 export const Footer = () => {
-  
   const scrollToSection = (sectionId: string) => {
     if (window.location.href.split("/")[3] && sectionId == "home") {
-      window.location.href = "/"
+      window.location.href = "/";
     }
     const section = document.getElementById(sectionId);
     section?.scrollIntoView({ behavior: "smooth" });
@@ -15,27 +14,48 @@ export const Footer = () => {
     <footer className="border-t bg-[#0a2b4c] px-2">
       <div className="container mx-auto py-4">
         <div className="flex flex-row justify-evenly">
-          <img src={logo} alt="logo" className="w-24" />
+          <img
+            onClick={() => scrollToSection("home")}
+            src={logo}
+            alt="logo"
+            className="w-24 cursor-pointer"
+          />
           <div className="flex flex-col items-center">
-            <h3 className="mb-4 font-bold text-xl text-[#C19959]">Sekcije</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="mb-2 font-bold text-xl text-[#C19959]">Sekcije</h3>
+            <ul className="text-sm">
               <li>
-                <Button variant={"link"} onClick={() => scrollToSection("home")} className="hover:text-foreground text-white">
+                <Button
+                  variant={"link"}
+                  onClick={() => scrollToSection("home")}
+                  className="hover:text-foreground text-white"
+                >
                   Početna
                 </Button>
               </li>
               <li>
-                <Button variant={"link"} onClick={() => scrollToSection("cards")} className="hover:text-foreground text-white">
+                <Button
+                  variant={"link"}
+                  onClick={() => scrollToSection("cards")}
+                  className="hover:text-foreground text-white"
+                >
                   Servisi
                 </Button>
               </li>
               <li>
-                <Button variant={"link"} onClick={() => scrollToSection("gallery")} className="hover:text-foreground text-white">
+                <Button
+                  variant={"link"}
+                  onClick={() => scrollToSection("gallery")}
+                  className="hover:text-foreground text-white"
+                >
                   Galerija
                 </Button>
               </li>
               <li>
-                <Button variant={"link"} onClick={() => scrollToSection("contact")} className="hover:text-foreground text-white">
+                <Button
+                  variant={"link"}
+                  onClick={() => scrollToSection("contact")}
+                  className="hover:text-foreground text-white"
+                >
                   Kontakt
                 </Button>
               </li>
