@@ -109,13 +109,20 @@ export const Header = () => {
                 >
                   Početna
                 </Button>
-                <Button
-                  variant={"link"}
-                  onClick={() => scrollToSection("cards")}
-                  className="text-sm font-medium text-[#246cb4] hover:text-black bg-white"
-                >
-                  Servisi
-                </Button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex items-center gap-1 font-medium transition-colors hover:text-primary cursor-pointer">
+                    <div className="text-sm w-full  font-medium text-[#246cb4] hover:text-black bg-white p-2 rounded-md">
+                      Usluge
+                    </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-56">
+                    {serviceLinks.map((service, index) => (
+                      <DropdownMenuItem key={index} asChild>
+                        <Link to={service.href}>{service.name}</Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 <Button
                   variant={"link"}
                   onClick={() => scrollToSection("gallery")}

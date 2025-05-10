@@ -233,7 +233,7 @@ export const Services = () => {
               (index + 1) % 2 == 0 ? "md:flex-row" : "md:flex-row-reverse"
             )}
           >
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 space-y-8">
               <h2 className="mb-4 text-3xl font-bold">{service.title}</h2>
               <p className="text-muted-foreground mb-6">{service.info}</p>
               <ul className="space-y-2">
@@ -246,7 +246,7 @@ export const Services = () => {
               </ul>
               <Link
                 to={service.href}
-                className="mt-6 bg-[#246cb4] hover:bg-[#355472]"
+                className="mt-6 bg-[#246cb4] text-white hover:bg-[#355472] rounded-md px-4 py-2 font-semibold"
               >
                 Više informacija...
               </Link>
