@@ -20,7 +20,7 @@ export const Service = ({ service }: { service: ServiceType }) => {
 
   const imagePaths = Object.values(images);
   return (
-    <div className="space-y-32">
+    <div className="space-y-32 px-2">
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row gap-8 items-center">

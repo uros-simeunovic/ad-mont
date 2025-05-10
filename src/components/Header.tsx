@@ -118,7 +118,7 @@ export const Header = () => {
                   <DropdownMenuContent align="start" className="w-56">
                     {serviceLinks.map((service, index) => (
                       <DropdownMenuItem key={index} asChild>
-                        <Link to={service.href}>{service.name}</Link>
+                        <Link onClick={onClose} to={service.href}>{service.name}</Link>
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuContent>
