@@ -9,6 +9,18 @@ import {
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/AD mont logo 1.svg";
 import { useSideBar } from "@/hooks/useSideBar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+
+const serviceLinks = [
+  { name: "MIG Welding", href: "/service1" },
+  { name: "TIG Welding", href: "/service2" },
+  { name: "EXA Welding", href: "/service3" },
+];
 
 export const Header = () => {
   const { isOpen, onClose, onOpen } = useSideBar();
@@ -16,8 +28,11 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const scrollToSection = (sectionId: string) => {
-    if (window.location.href.split("/").includes("gallery") && sectionId == "home") {
-      window.location.href = "/"
+    if (
+      window.location.href.split("/").includes("gallery") &&
+      sectionId == "home"
+    ) {
+      window.location.href = "/";
     }
     onClose();
     const section = document.getElementById(sectionId);
@@ -33,29 +48,36 @@ export const Header = () => {
         <nav className="hidden gap-6 md:flex">
           <Button
             variant={"link"}
-            onClick={() => scrollToSection("home")}
-            className="text-sm font-medium text-[#246cb4] hover:text-black"
+            onClick={() => navigate("/")}
+            className="text-sm font-bold text-[#246cb4] hover:text-black"
           >
             Početna
           </Button>
-          <Button
-            variant={"link"}
-            onClick={() => scrollToSection("cards")}
-            className="text-sm font-medium text-[#246cb4] hover:text-black"
-          >
-            Servisi
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 font-medium transition-colors hover:text-primary cursor-pointer">
+              <div className="text-sm font-bold text-[#246cb4] hover:text-black px-2">
+                Usluge
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56">
+              {serviceLinks.map((service, index) => (
+                <DropdownMenuItem key={index} asChild>
+                  <Link to={service.href}>{service.name}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Button
             variant={"link"}
             onClick={() => scrollToSection("gallery")}
-            className="text-sm font-medium text-[#246cb4] hover:text-black"
+            className="text-sm font-bold text-[#246cb4] hover:text-black"
           >
             Galerija
           </Button>
           <Button
             variant={"link"}
             onClick={() => scrollToSection("contact")}
-            className="text-sm font-medium text-[#246cb4] hover:text-black"
+            className="text-sm font-bold text-[#246cb4] hover:text-black"
           >
             Kontakt
           </Button>
