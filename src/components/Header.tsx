@@ -65,7 +65,12 @@ export const Header = () => {
         <nav className="hidden gap-6 md:flex">
           <Button
             variant={"link"}
-            onClick={() => navigate("/")}
+            onClick={() => {
+              navigate("/");
+              setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }, 100);
+            }}
             className="text-sm font-semibold text-[#4f5050] hover:text-[#256eb6] transition-colors"
           >
             Početna
@@ -173,10 +178,15 @@ export const Header = () => {
                     Navigacija
                   </h3>
 
-                  <Link
-                    to="/"
-                    onClick={onClose}
-                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#256eb6]/5 transition-all duration-300 group"
+                  <button
+                    onClick={() => {
+                      onClose();
+                      navigate("/");
+                      setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }, 100);
+                    }}
+                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#256eb6]/5 transition-all duration-300 group w-full text-left"
                   >
                     <div className="w-10 h-10 bg-[#256eb6]/10 rounded-lg flex items-center justify-center group-hover:bg-[#256eb6]/20 transition-colors">
                       <Home className="h-5 w-5 text-[#256eb6]" />
@@ -189,7 +199,7 @@ export const Header = () => {
                         Naslovna strana
                       </div>
                     </div>
-                  </Link>
+                  </button>
 
                   <button
                     onClick={() => {
