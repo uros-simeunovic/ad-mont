@@ -77,7 +77,7 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
                 <img
                   src={service.img}
                   alt={service.title}
-                  className="rounded-2xl shadow-2xl w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="rounded-2xl shadow-2xl w-full h-[500px] object-cover transition-all duration-500 ease-out group-hover:scale-[1.01]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
               </div>
@@ -123,9 +123,9 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
                 <img
                   src={service.img}
                   alt="Service benefits"
-                  className="rounded-2xl shadow-2xl w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="rounded-2xl shadow-2xl w-full h-[500px] object-cover transition-all duration-700 ease-out group-hover:scale-[1.02]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl transition-opacity duration-300 group-hover:opacity-80"></div>
               </div>
             </div>
           </div>
