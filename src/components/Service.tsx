@@ -48,7 +48,7 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
   return (
     <div className="space-y-0">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2 space-y-6">
@@ -63,8 +63,9 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
                   <span className="font-medium">Vrati na početnu</span>
                 </Link>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#4f5050] leading-tight">
-                {service.title}
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+                <span className="text-[#4f5050]">{service.title.split(' ').slice(0, -1).join(' ')}</span>
+                <span className="text-[#256eb6]"> {service.title.split(' ').slice(-1)}</span>
               </h1>
               <p className="text-xl text-[#256eb6] font-medium">{service.subtitle}</p>
               <p className="text-lg text-gray-600 leading-relaxed">
@@ -167,29 +168,29 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
               Pogledajte neke od naših najboljih projekata i rezultata
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {imagePaths.slice(0, 6).map((path, index) => (
-              <div 
-                key={index} 
-                className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer"
-                onClick={() => openModal(index)}
-              >
-                <img
-                  src={path}
-                  alt={`Gallery image ${index + 1}`}
-                  className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <ZoomIn className="h-8 w-8 text-white" />
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {imagePaths.slice(0, 6).map((path, index) => (
+                  <div 
+                    key={index} 
+                    className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer"
+                    onClick={() => openModal(index)}
+                  >
+                    <img
+                      src={path}
+                      alt={`Gallery image ${index + 1}`}
+                      className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <ZoomIn className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                    <div className="absolute top-3 right-3 bg-[#256eb6] text-white text-sm px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">
+                      {index + 1} / {imagePaths.length}
+                    </div>
                   </div>
-                </div>
-                <div className="absolute top-3 right-3 bg-black/70 text-white text-sm px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {index + 1} / {imagePaths.length}
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -238,7 +239,7 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
             {/* Action button */}
             <div className="flex justify-center">
               <Button 
-                className="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105"
+                className="bg-[#256eb6] text-white hover:bg-[#1e5a9a] font-semibold px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                 onClick={() => {
                   navigate('/');
                   setTimeout(() => {

@@ -9,9 +9,9 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative flex h-[100vh] flex-col items-center sm:min-h-screen" id="home">
-      <div className="z-20 container flex h-full flex-col justify-center px-2">
-        <div className="space-y-6 max-w-4xl">
+    <section className="relative flex min-h-screen flex-col items-center justify-center py-20" id="home">
+      <div className="z-20 container flex h-full flex-col justify-center px-4">
+        <div className="space-y-8 max-w-4xl">
           <div className="flex items-center gap-2 text-[#256eb6] mb-4">
             <Sparkles className="h-6 w-6" />
             <span className="text-lg font-semibold">AD-Mont</span>
