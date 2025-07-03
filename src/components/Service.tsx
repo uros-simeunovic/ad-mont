@@ -168,29 +168,39 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
               Pogledajte neke od naših najboljih projekata i rezultata
             </p>
           </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {imagePaths.slice(0, 6).map((path, index) => (
-                  <div 
-                    key={index} 
-                    className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer"
-                    onClick={() => openModal(index)}
-                  >
-                    <img
-                      src={path}
-                      alt={`Gallery image ${index + 1}`}
-                      className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <ZoomIn className="h-8 w-8 text-white" />
-                      </div>
-                    </div>
-                    <div className="absolute top-3 right-3 bg-[#256eb6] text-white text-sm px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">
-                      {index + 1} / {imagePaths.length}
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {imagePaths.slice(0, 6).map((path, index) => (
+              <div 
+                key={index} 
+                className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer border-2 border-transparent hover:border-[#256eb6]/30 transition-all duration-300 hover:shadow-xl"
+                onClick={() => openModal(index)}
+              >
+                <img
+                  src={path}
+                  alt={`Gallery image ${index + 1}`}
+                  className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Overlay with zoom icon - visible on mobile, hover on desktop */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 transform md:group-hover:scale-110">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 border border-white/30">
+                      <ZoomIn className="h-8 w-8 text-white" />
                     </div>
                   </div>
-                ))}
+                </div>
+                {/* Image counter - always visible on mobile */}
+                <div className="absolute top-3 right-3 bg-[#256eb6] text-white text-sm px-3 py-1 rounded-full opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 font-medium shadow-lg">
+                  {index + 1} / {imagePaths.length}
+                </div>
+                {/* Click hint text - always visible on mobile */}
+                <div className="absolute bottom-3 left-3 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-black/70 text-white text-xs px-2 py-1 rounded-md font-medium">
+                    Kliknite za uvećanje
+                  </div>
+                </div>
               </div>
+            ))}
+          </div>
         </div>
       </section>
 
