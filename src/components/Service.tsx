@@ -1,5 +1,5 @@
-import { ChevronLeft } from "lucide-react";
-import { Link } from "react-router";
+import { ChevronLeft, CheckCircle, ArrowRight, ZoomIn } from "lucide-react";
+import { Link, useNavigate } from "react-router";
 import {
   Accordion,
   AccordionContent,
@@ -8,155 +8,262 @@ import {
 } from "./ui/accordion";
 import { Button } from "./ui/button";
 import { ServiceType } from "@/types/Service";
+import { ImageModal } from "@/components/ImageModal";
+import { useState } from "react";
 
-export const Service = ({ service }: { service: ServiceType }) => {
-  const images: Record<string, string> = import.meta.glob(
-    "../assets/gallery/*.{png,jpg,jpeg,webp}",
-    {
-      eager: true,
-      import: "default",
-    }
-  );
+export const Service = ({ service, galleryImages }: { service: ServiceType; galleryImages?: string[] }) => {
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Use provided gallery images or fall back to all gallery images
+  const imagePaths = galleryImages || (() => {
+    const images: Record<string, string> = import.meta.glob(
+      "../assets/gallery/*.{png,jpg,jpeg,webp}",
+      {
+        eager: true,
+        import: "default",
+      }
+    );
+    return Object.values(images);
+  })();
 
-  const imagePaths = Object.values(images);
+  const openModal = (index: number) => {
+    setCurrentImageIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const goToPrevious = () => {
+    setCurrentImageIndex((prev) => (prev > 0 ? prev - 1 : imagePaths.length - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentImageIndex((prev) => (prev < imagePaths.length - 1 ? prev + 1 : 0));
+  };
+  
   return (
-    <div className="space-y-32 px-2">
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="md:w-1/2">
+    <div className="space-y-0">
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            <div className="lg:w-1/2 space-y-6">
               <div className="flex items-center gap-4 mb-6">
                 <Link
                   to="/"
-                  className="text-sm text-[#246cb4] hover:underline flex flex-row items-center gap-2"
+                  className="text-sm text-[#256eb6] hover:text-[#1e5a9a] transition-colors flex items-center gap-2 group"
                 >
-                  <div className="w-12 h-12 bg-[#246cb4]/10 rounded-full flex items-center justify-center">
-                    <ChevronLeft className="text-[#246cb4]" />
+                  <div className="w-10 h-10 bg-[#256eb6]/10 rounded-full flex items-center justify-center group-hover:bg-[#256eb6]/20 transition-colors">
+                    <ChevronLeft className="text-[#256eb6] h-5 w-5" />
                   </div>
-                  <div>Vrati na pocetnu</div>
+                  <span className="font-medium">Vrati na početnu</span>
                 </Link>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-[#246cb4]">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#4f5050] leading-tight">
                 {service.title}
               </h1>
-              <p className="text-lg text-[#246cb4]/80">{service.subtitle}</p>
+              <p className="text-xl text-[#256eb6] font-medium">{service.subtitle}</p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                {service.description1}
+              </p>
             </div>
-            <div className="md:w-1/2">
-              <img
-                src={service.img}
-                alt="service-hero-image"
-                className="rounded-lg shadow-md w-full h-[500px] object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto container">
-        <h2 className="text-2xl font-bold mb-4 text-[#246cb4]">Opis usluge</h2>
-        <p className="text-[#246cb4] mb-4 ">{service.description1}</p>
-        <p className="text-[#246cb4]/80">{service.description2}</p>
-      </section>
-      <section className="container mx-auto">
-        <h2 className="text-2xl font-bold mb-6 text-[#246cb4]">Key Benefits</h2>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src={service.img}
-              width={500}
-              height={400}
-              alt="3D terrain model from drone data"
-              className="w-full h-[500px] object-cover"
-            />
-          </div>
-          <div className="order-1 md:order-2">
-            <ul className="list-disc pl-6 space-y-2 text-[#246cb4]/80">
-              <li>Centimeter-level accuracy for precise measurements</li>
-              <li>Rapid data acquisition covering large areas efficiently</li>
-              <li>
-                Comprehensive data products including orthomosaics, DEMs, and 3D
-                models
-              </li>
-              <li>
-                Cost-effective alternative to traditional surveying methods
-              </li>
-              <li>
-                Reduced safety risks by eliminating the need to access hazardous
-                areas
-              </li>
-              <li>
-                Regular surveys enable progress tracking and change detection
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto container">
-        <h2 className="text-2xl font-bold mb-4">Proces izrade</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {service.processSteps.map((step) => (
-            <div className="border rounded-lg p-6">
-              <div className="w-10 h-10 bg-[#246cb4]/10 rounded-full flex items-center justify-center mb-4">
-                <span className="font-bold text-[#246cb4]">{step.number}</span>
+            <div className="lg:w-1/2">
+              <div className="relative group">
+                <img
+                  src={service.img}
+                  alt={service.title}
+                  className="rounded-2xl shadow-2xl w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
               </div>
-              <h3 className="font-bold mb-2">{step.title}</h3>
-              <p className="text-gray-600">{step.description}</p>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto container">
-        <div className="mb-10 flex flex-col items-center">
-          <h2 className="text-4xl text-[#246cb4] font-bold">Galerija</h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {imagePaths.map((path, index) => (
-            <div key={index} className="flex items-center justify-center">
-              <img
-                src={path}
-                alt={`Image ${index + 1}`}
-                className="rounded-xl h-[300px] w-full object-cover object-center"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto container">
-        <h2 className="text-2xl font-bold mb-6 text-[#246cb4]">
-          Frequently Asked Questions
-        </h2>
-        <Accordion type="single" collapsible className="w-full">
-          {service.faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left font-medium text-lg cursor-pointer text-[#246cb4]/80">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-600">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </section>
-
-      <section className="py-16 bg-[#246cb4]/20">
-        <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6 text-[#246cb4]">
-              Da li ste spremni da saradjujemo?
-            </h2>
-            <p className="text-lg text-[#246cb4]/80 mb-8">
-              Pokrenimo diskusiju kako naše usluge mogu pomoći vama.
-            </p>
-            <Button className="bg-[#246cb4] hover:bg-[#3e5b77] px-8 py-6 text-lg h-auto">
-              Kontaktirajte nas
-            </Button>
           </div>
         </div>
       </section>
+
+      {/* Description Section */}
+      <section className="py-16 container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8 text-[#4f5050] text-center">
+            O našoj usluzi
+          </h2>
+          <div className="prose prose-lg mx-auto text-gray-600 leading-relaxed">
+            <p className="text-lg mb-6">{service.description1}</p>
+            <p className="text-lg">{service.description2}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-3xl font-bold mb-8 text-[#4f5050]">
+                Prednosti naše usluge
+              </h2>
+              <div className="space-y-4">
+                {service.benefits.map((benefit, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 bg-[#256eb6]/10 rounded-full flex items-center justify-center">
+                      <CheckCircle className="h-5 w-5 text-[#256eb6]" />
+                    </div>
+                    <p className="text-lg text-gray-700">{benefit.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="relative group">
+                <img
+                  src={service.img}
+                  alt="Service benefits"
+                  className="rounded-2xl shadow-2xl w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Steps */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-6 text-[#4f5050]">
+              Proces izrade
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Naš sistematičan pristup obezbeđuje kvalitet i preciznost u svakom koraku
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {service.processSteps.map((step) => (
+              <div key={step.number} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="w-16 h-16 bg-[#256eb6] text-white rounded-full flex items-center justify-center mb-6 text-xl font-bold">
+                  {step.number}
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-[#4f5050]">{step.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-6 text-[#4f5050]">
+              Galerija naših radova
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Pogledajte neke od naših najboljih projekata i rezultata
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {imagePaths.slice(0, 6).map((path, index) => (
+              <div 
+                key={index} 
+                className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer"
+                onClick={() => openModal(index)}
+              >
+                <img
+                  src={path}
+                  alt={`Gallery image ${index + 1}`}
+                  className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ZoomIn className="h-8 w-8 text-white" />
+                  </div>
+                </div>
+                <div className="absolute top-3 right-3 bg-black/70 text-white text-sm px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {index + 1} / {imagePaths.length}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold mb-6 text-[#4f5050]">
+                Često postavljena pitanja
+              </h2>
+              <p className="text-lg text-gray-600">
+                Odgovori na najčešća pitanja o našim uslugama
+              </p>
+            </div>
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {service.faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-lg border border-gray-200 px-6">
+                  <AccordionTrigger className="text-left font-semibold text-lg cursor-pointer text-[#4f5050] hover:text-[#256eb6] transition-colors py-4">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 pb-4 leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gray-900 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            {/* Main heading */}
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Spremni za saradnju?
+            </h2>
+            
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl mb-8 text-gray-300">
+              Kontaktirajte nas za besplatnu konsultaciju i detaljnu ponudu za vaš projekat.
+            </p>
+            
+            {/* Action button */}
+            <div className="flex justify-center">
+              <Button 
+                className="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105"
+                onClick={() => {
+                  navigate('/');
+                  setTimeout(() => {
+                    const contactSection = document.getElementById('contact');
+                    contactSection?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
+              >
+                Kontaktirajte nas
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        currentImage={imagePaths[currentImageIndex]}
+        onPrevious={goToPrevious}
+        onNext={goToNext}
+        hasPrevious={currentImageIndex > 0}
+        hasNext={currentImageIndex < imagePaths.length - 1}
+      />
     </div>
   );
 };
