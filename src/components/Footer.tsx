@@ -1,6 +1,6 @@
 import logo from "@/assets/AD mont logo 2.svg";
 import { Button } from "./ui/button";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -92,29 +92,66 @@ export const Footer = () => {
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-[#256eb6]" />
                 <div>
-                  <p className="text-gray-300">+381 11 123 4567</p>
-                  <p className="text-gray-300">+381 63 123 456</p>
+                  <p className="text-gray-300">+381 65 9902909</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-[#256eb6]" />
                 <div>
-                  <p className="text-gray-300">info@ad-mont.rs</p>
-                  <p className="text-gray-300">prodaja@ad-mont.rs</p>
+                  <p className="text-gray-300">admontkrupanj@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-[#256eb6]" />
                 <div>
-                  <p className="text-gray-300">Industrijska zona 15</p>
-                  <p className="text-gray-300">11000 Beograd, Srbija</p>
+                  <p className="text-gray-300">Vlade Zečevića 67</p>
+                  <p className="text-gray-300">15314 Krupanj, Srbija</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Clock className="h-5 w-5 text-[#256eb6]" />
+                <svg
+                  className="h-5 w-5 text-[#256eb6]"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="2"
+                    y="2"
+                    width="20"
+                    height="20"
+                    rx="5"
+                    ry="5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="none"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="none"
+                  />
+                  <circle
+                    cx="17"
+                    cy="7"
+                    r="1.2"
+                    fill="currentColor"
+                  />
+                </svg>
                 <div>
-                  <p className="text-gray-300">Pon-Pet: 08:00 - 17:00</p>
-                  <p className="text-gray-300">Subota: 08:00 - 14:00</p>
+                  <a
+                    href="https://www.instagram.com/_ad_mont_krupanj"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-[#256eb6] transition-colors"
+                  >
+                    _ad_mont_krupanj
+                  </a>
                 </div>
               </div>
             </div>

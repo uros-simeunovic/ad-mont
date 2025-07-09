@@ -1,31 +1,65 @@
-import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
+import { Phone, Mail, MapPin, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export const Contact = () => {
   const contactInfo = [
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Telefon",
-      details: ["+381 11 123 4567", "+381 63 123 456"],
+      details: ["+381 65 9902909"],
       description: "Pozovite nas za besplatnu konsultaciju"
     },
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      details: ["info@ad-mont.rs", "prodaja@ad-mont.rs"],
+      details: ["admontkrupanj@gmail.com"],
       description: "Pošaljite nam upit za vaš projekat"
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Adresa",
-      details: ["Industrijska zona 15", "11000 Beograd, Srbija"],
+      details: ["Vlade Zečevića 67", "15314 Krupanj, Srbija"],
       description: "Posetite našu radionicu"
     },
     {
-      icon: <Clock className="h-6 w-6" />,
-      title: "Radno Vreme",
-      details: ["Pon-Pet: 08:00 - 17:00", "Subota: 08:00 - 14:00"],
-      description: "Dostupni smo i van radnog vremena"
+      icon: <svg
+        className="h-5 w-5 text-white"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <rect
+          x="2"
+          y="2"
+          width="20"
+          height="20"
+          rx="5"
+          ry="5"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="none"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          r="5"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="none"
+        />
+        <circle
+          cx="17"
+          cy="7"
+          r="1.2"
+          fill="currentColor"
+        />
+      </svg>,
+      title: "Instagram",
+      details: ["_ad_mont_krupanj"],
+      description: "Zapratite nas na Instagram-u"
     }
   ];
 
@@ -37,8 +71,8 @@ export const Contact = () => {
             Kontaktirajte Nas
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Spremni smo da vam pomognemo sa vašim projektom. Kontaktirajte nas 
-            za besplatnu konsultaciju i ponudu.
+            Spremni smo da vam pomognemo sa vašim projektom. Kontaktirajte nas
+            za konsultacije i ponudu.
           </p>
         </div>
 
@@ -51,15 +85,23 @@ export const Contact = () => {
                 Informacije
               </h3>
               <p className="text-gray-300 leading-relaxed mb-8">
-                Naš tim stručnjaka je uvek spreman da odgovori na vaša pitanja 
-                i pruži profesionalnu podršku za vaš projekat. Kontaktirajte nas 
+                Naš tim stručnjaka je uvek spreman da odgovori na vaša pitanja
+                i pruži profesionalnu podršku za vaš projekat. Kontaktirajte nas
                 na bilo koji način koji vam odgovara.
               </p>
             </div>
 
             <div className="grid gap-6">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start gap-4 p-6 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                <div
+                  key={index}
+                  onClick={() => {
+                    if (info.title === "Instagram") {
+                      window.open("https://www.instagram.com/_ad_mont_krupanj", "_blank");
+                    }
+                  }}
+                  className={cn("flex items-start gap-4 p-6 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300", info.title === "Instagram" && "cursor-pointer")}
+                >
                   <div className="flex-shrink-0 w-12 h-12 bg-[#256eb6] rounded-lg flex items-center justify-center">
                     {info.icon}
                   </div>
@@ -163,8 +205,8 @@ export const Contact = () => {
                 ></textarea>
               </div>
 
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full bg-[#256eb6] hover:bg-[#1e5a9a] text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
               >
                 Pošaljite Poruku
@@ -174,18 +216,18 @@ export const Contact = () => {
         </div>
 
         {/* Map or Additional Info */}
-        <div className="mt-16 text-center">
+        {/* <div className="mt-16 text-center">
           <div className="bg-gray-800 rounded-2xl p-8">
             <h3 className="text-2xl font-bold mb-4">Besplatna Konsultacija</h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Naš tim će vam pružiti besplatnu konsultaciju i detaljnu ponudu za vaš projekat. 
+              Naš tim će vam pružiti besplatnu konsultaciju i detaljnu ponudu za vaš projekat.
               Dolazimo na teren, analiziramo vaše potrebe i predlažemo najbolja rešenja.
             </p>
             <Button className="bg-[#256eb6] hover:bg-[#1e5a9a] text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300">
               Zakažite Konsultaciju
             </Button>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
