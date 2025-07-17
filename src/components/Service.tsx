@@ -121,7 +121,7 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
             <div className="order-1 lg:order-2">
               <div className="relative group">
                 <img
-                  src={service.img}
+                  src={service.img2}
                   alt="Service benefits"
                   className="rounded-2xl shadow-2xl w-full h-[500px] object-cover transition-all duration-700 ease-out group-hover:scale-[1.02]"
                 />

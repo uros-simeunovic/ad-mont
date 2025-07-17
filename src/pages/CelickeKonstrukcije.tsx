@@ -12,6 +12,7 @@ import nadstresnica1 from "@/assets/konstrukcije/nadstresnica1.jpg";
 import nadstresnica2 from "@/assets/konstrukcije/nadstresnica2.jpg";
 import stepeniste1 from "@/assets/konstrukcije/stepeniste1.jpg";
 import stepeniste2 from "@/assets/konstrukcije/stepeniste2.jpg";
+import serviceImg2 from "@/assets/konstrukcije/konstrukcije2.jpeg";
 
 const celickeKonstrukcijeImages = [
   celickeKonstrukcije1,
@@ -101,6 +102,7 @@ const service2 = {
     },
   ],
   img: serviceImg,
+  img2: serviceImg2,
   href: "/celicke-konstrukcije",
 };
 

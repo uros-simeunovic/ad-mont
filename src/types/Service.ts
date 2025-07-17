@@ -24,5 +24,6 @@ export interface ServiceType {
   benefits: Benefit[];
   faqs: Faq[];
   img: string;
+  img2: string;
   href: string;
 }

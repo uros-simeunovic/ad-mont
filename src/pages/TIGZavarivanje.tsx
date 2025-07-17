@@ -7,6 +7,7 @@ import tigZavarivanje2 from "@/assets/zavarivanje/konstrukcije2.jpg";
 import tigZavarivanje3 from "@/assets/zavarivanje/konstrukcije3.jpg";
 import tigZavarivanje4 from "@/assets/zavarivanje/konstrukcije4.jpg";
 import tigZavarivanje5 from "@/assets/zavarivanje/konstrukcije5.jpg";
+import serviceImg2 from "@/assets/zavarivanje/zavarivanje2.jpeg";
 
 const tigZavarivanjeImages = [
   tigZavarivanje1,
@@ -91,6 +92,7 @@ const service3 = {
     },
   ],
   img: serviceImg,
+  img2: serviceImg2,
   href: "/tig-zavarivanje",
 };
 
