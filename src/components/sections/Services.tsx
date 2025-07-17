@@ -1,5 +1,5 @@
 import { ChevronRight, Wrench, Factory, Zap } from "lucide-react";
-import service1 from "@/assets/namestaj/mainNamestaj.jpg";
+import service1 from "@/assets/namestaj/namestaj6.jpg";
 import service2 from "@/assets/konstrukcije/mainCelicneKonstrukcijeKapije.jpg";
 import service3 from "@/assets/zavarivanje/mainKonstrukcije.jpg";
 import { cn } from "@/lib/utils";
