@@ -1,13 +1,13 @@
-import serviceImg from "@/assets/gallery/1.jpeg";
+import serviceImg from "@/assets/namestaj/mainNamestaj.jpg";
 import { Service } from "@/components/Service";
 
 // Import specific images for Metalni Namestaj gallery
-import metalniNamestaj1 from "@/assets/gallery/1.jpeg";
-import metalniNamestaj2 from "@/assets/gallery/2.jpeg";
-import metalniNamestaj3 from "@/assets/gallery/3.jpeg";
-import metalniNamestaj4 from "@/assets/gallery/4.jpeg";
-import metalniNamestaj5 from "@/assets/gallery/5.jpeg";
-import metalniNamestaj6 from "@/assets/gallery/6.jpeg";
+import metalniNamestaj1 from "@/assets/namestaj/namestaj1.jpg";
+import metalniNamestaj2 from "@/assets/namestaj/namestaj2.jpg";
+import metalniNamestaj3 from "@/assets/namestaj/namestaj3.jpg";
+import metalniNamestaj4 from "@/assets/namestaj/namestaj4.jpg";
+import metalniNamestaj5 from "@/assets/namestaj/namestaj5.jpg";
+import metalniNamestaj6 from "@/assets/namestaj/namestaj6.jpg";
 
 const metalniNamestajImages = [
   metalniNamestaj1,

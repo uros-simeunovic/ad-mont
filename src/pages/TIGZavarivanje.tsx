@@ -1,13 +1,12 @@
-import serviceImg from "@/assets/gallery/3.jpeg";
+import serviceImg from "@/assets/zavarivanje/mainKonstrukcije.jpg";
 import { Service } from "@/components/Service";
 
 // Import specific images for TIG Zavarivanje gallery
-import tigZavarivanje1 from "@/assets/gallery/3.jpeg";
-import tigZavarivanje2 from "@/assets/gallery/13.jpeg";
-import tigZavarivanje3 from "@/assets/gallery/4.jpeg";
-import tigZavarivanje4 from "@/assets/gallery/5.jpeg";
-import tigZavarivanje5 from "@/assets/gallery/6.jpeg";
-import tigZavarivanje6 from "@/assets/gallery/7.jpeg";
+import tigZavarivanje1 from "@/assets/zavarivanje/konstrukcije1.jpg";
+import tigZavarivanje2 from "@/assets/zavarivanje/konstrukcije2.jpg";
+import tigZavarivanje3 from "@/assets/zavarivanje/konstrukcije3.jpg";
+import tigZavarivanje4 from "@/assets/zavarivanje/konstrukcije4.jpg";
+import tigZavarivanje5 from "@/assets/zavarivanje/konstrukcije5.jpg";
 
 const tigZavarivanjeImages = [
   tigZavarivanje1,
@@ -15,7 +14,6 @@ const tigZavarivanjeImages = [
   tigZavarivanje3,
   tigZavarivanje4,
   tigZavarivanje5,
-  tigZavarivanje6,
 ];
 
 const service3 = {

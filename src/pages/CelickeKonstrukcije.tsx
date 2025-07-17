@@ -1,13 +1,17 @@
-import serviceImg from "@/assets/gallery/2.jpeg";
+import serviceImg from "@/assets/konstrukcije/mainCelicneKonstrukcijeKapije.jpg";
 import { Service } from "@/components/Service";
 
 // Import specific images for Celicke Konstrukcije gallery
-import celickeKonstrukcije1 from "@/assets/gallery/7.jpeg";
-import celickeKonstrukcije2 from "@/assets/gallery/8.jpeg";
-import celickeKonstrukcije3 from "@/assets/gallery/9.jpeg";
-import celickeKonstrukcije4 from "@/assets/gallery/10.jpeg";
-import celickeKonstrukcije5 from "@/assets/gallery/11.jpeg";
-import celickeKonstrukcije6 from "@/assets/gallery/12.jpeg";
+import celickeKonstrukcije1 from "@/assets/konstrukcije/kapije1.jpg";
+import celickeKonstrukcije2 from "@/assets/konstrukcije/kapije2.jpg";
+import celickeKonstrukcije3 from "@/assets/konstrukcije/kapije3.jpg";
+import celickeKonstrukcije4 from "@/assets/konstrukcije/kapije4.jpg";
+import celickeKonstrukcije5 from "@/assets/konstrukcije/kapije5.jpg";
+import celickeKonstrukcije6 from "@/assets/konstrukcije/kapije6.jpg";
+import nadstresnica1 from "@/assets/konstrukcije/nadstresnica1.jpg";
+import nadstresnica2 from "@/assets/konstrukcije/nadstresnica2.jpg";
+import stepeniste1 from "@/assets/konstrukcije/stepeniste1.jpg";
+import stepeniste2 from "@/assets/konstrukcije/stepeniste2.jpg";
 
 const celickeKonstrukcijeImages = [
   celickeKonstrukcije1,
@@ -16,6 +20,10 @@ const celickeKonstrukcijeImages = [
   celickeKonstrukcije4,
   celickeKonstrukcije5,
   celickeKonstrukcije6,
+  nadstresnica1,
+  nadstresnica2,
+  stepeniste1,
+  stepeniste2,
 ];
 
 const service2 = {

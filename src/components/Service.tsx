@@ -15,7 +15,7 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
+
   // Use provided gallery images or fall back to all gallery images
   const imagePaths = galleryImages || (() => {
     const images: Record<string, string> = import.meta.glob(
@@ -44,7 +44,7 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
   const goToNext = () => {
     setCurrentImageIndex((prev) => (prev < imagePaths.length - 1 ? prev + 1 : 0));
   };
-  
+
   return (
     <div className="space-y-0">
       {/* Hero Section */}
@@ -168,10 +168,10 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
               Pogledajte neke od naših najboljih projekata i rezultata
             </p>
           </div>
-                                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {imagePaths.slice(0, 6).map((path, index) => (
-              <div 
-                key={index} 
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {imagePaths.slice(0, 10).map((path, index) => (
+              <div
+                key={index}
                 className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer border-2 border-transparent hover:border-[#256eb6]/30 transition-all duration-300 hover:shadow-xl"
                 onClick={() => openModal(index)}
               >
@@ -240,15 +240,15 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Spremni za saradnju?
             </h2>
-            
+
             {/* Subtitle */}
             <p className="text-lg md:text-xl mb-8 text-gray-300">
               Kontaktirajte nas za besplatnu konsultaciju i detaljnu ponudu za vaš projekat.
             </p>
-            
+
             {/* Action button */}
             <div className="flex justify-center">
-              <Button 
+              <Button
                 className="bg-[#256eb6] text-white hover:bg-[#1e5a9a] font-semibold px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                 onClick={() => {
                   navigate('/');
