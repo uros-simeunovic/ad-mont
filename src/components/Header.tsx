@@ -107,15 +107,6 @@ export const Header = () => {
                   </DropdownMenuItem>
                 ))}
               </div>
-              <div className="mt-3 pt-3 border-t border-gray-100">
-                <Link
-                  to="/services"
-                  className="flex items-center justify-center gap-2 w-full px-4 py-2 text-sm font-medium text-[#256eb6] hover:bg-[#256eb6]/5 rounded-lg transition-colors"
-                >
-                  Pogledajte sve usluge
-                  <ChevronDown className="h-4 w-4 rotate-[-90deg]" />
-                </Link>
-              </div>
             </DropdownMenuContent>
           </DropdownMenu>
           <Button
