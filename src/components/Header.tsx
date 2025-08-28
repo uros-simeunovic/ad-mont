@@ -116,13 +116,13 @@ export const Header = () => {
           >
             O Nama
           </Button>
-          <Button
+          {/* <Button
             variant={"link"}
             onClick={() => scrollToSection("services")}
             className="text-sm font-semibold text-[#4f5050] hover:text-[#256eb6] transition-colors"
           >
             Usluge
-          </Button>
+          </Button> */}
           <Button
             variant={"link"}
             onClick={() => scrollToSection("contact")}
