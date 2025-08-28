@@ -54,7 +54,7 @@ export const Hero = () => {
       </div>
       
       {/* Enhanced gradient overlay */}
-      <div className="absolute inset-0 z-10 h-full bg-gradient-to-r from-gray-900/95 via-gray-900/80 to-transparent" />
+      <div className="absolute inset-0 z-10 h-full bg-gradient-to-r from-gray-900/95 via-gray-900/80 to-gray-900/50" />
       
       {/* Additional decorative elements */}
       <div className="absolute inset-0 z-5">
