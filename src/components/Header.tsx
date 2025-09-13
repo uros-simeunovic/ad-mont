@@ -23,7 +23,7 @@ const serviceLinks = [
   },
   {
     name: "Čelične Konstrukcije",
-    href: "/celicke-konstrukcije",
+    href: "/celicne-konstrukcije",
     icon: <Factory className="h-5 w-5" />,
     description: "Steel structures, fences, and industrial solutions"
   },

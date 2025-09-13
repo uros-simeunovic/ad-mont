@@ -1,26 +1,25 @@
 import serviceImg from "@/assets/konstrukcije/mainCelicneKonstrukcijeKapije.jpg";
 import { Service } from "@/components/Service";
 
-// Import specific images for Celicke Konstrukcije gallery
-import celickeKonstrukcije1 from "@/assets/konstrukcije/kapije1.jpg";
-import celickeKonstrukcije2 from "@/assets/konstrukcije/kapije2.jpg";
-import celickeKonstrukcije3 from "@/assets/konstrukcije/kapije3.jpg";
-import celickeKonstrukcije4 from "@/assets/konstrukcije/kapije4.jpg";
-import celickeKonstrukcije5 from "@/assets/konstrukcije/kapije5.jpg";
-import celickeKonstrukcije6 from "@/assets/konstrukcije/kapije6.jpg";
+import celicneKonstrukcije1 from "@/assets/konstrukcije/kapije1.jpg";
+import celicneKonstrukcije2 from "@/assets/konstrukcije/kapije2.jpg";
+import celicneKonstrukcije3 from "@/assets/konstrukcije/kapije3.jpg";
+import celicneKonstrukcije4 from "@/assets/konstrukcije/kapije4.jpg";
+import celicneKonstrukcije5 from "@/assets/konstrukcije/kapije5.jpg";
+import celicneKonstrukcije6 from "@/assets/konstrukcije/kapije6.jpg";
 import nadstresnica1 from "@/assets/konstrukcije/nadstresnica1.jpg";
 import nadstresnica2 from "@/assets/konstrukcije/nadstresnica2.jpg";
 import stepeniste1 from "@/assets/konstrukcije/stepeniste1.jpg";
 import stepeniste2 from "@/assets/konstrukcije/stepeniste2.jpg";
 import serviceImg2 from "@/assets/konstrukcije/konstrukcije2.jpeg";
 
-const celickeKonstrukcijeImages = [
-  celickeKonstrukcije1,
-  celickeKonstrukcije2,
-  celickeKonstrukcije3,
-  celickeKonstrukcije4,
-  celickeKonstrukcije5,
-  celickeKonstrukcije6,
+const celicneKonstrukcijeImages = [
+  celicneKonstrukcije1,
+  celicneKonstrukcije2,
+  celicneKonstrukcije3,
+  celicneKonstrukcije4,
+  celicneKonstrukcije5,
+  celicneKonstrukcije6,
   nadstresnica1,
   nadstresnica2,
   stepeniste1,
@@ -103,9 +102,9 @@ const service2 = {
   ],
   img: serviceImg,
   img2: serviceImg2,
-  href: "/celicke-konstrukcije",
+  href: "/celicne-konstrukcije",
 };
 
-export const CelickeKonstrukcije = () => {
-  return <Service service={service2} galleryImages={celickeKonstrukcijeImages}/>;
+export const CelicneKonstrukcije = () => {
+  return <Service service={service2} galleryImages={celicneKonstrukcijeImages} />;
 }; 

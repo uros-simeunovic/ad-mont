@@ -44,7 +44,7 @@ const services = [
       ],
 
       img: service2,
-    href: "/celicke-konstrukcije",
+      href: "/celicne-konstrukcije",
   },
   {
     title: "TIG Zavarivanje i Cevovodi",
