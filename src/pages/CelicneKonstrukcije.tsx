@@ -12,6 +12,12 @@ import nadstresnica2 from "@/assets/konstrukcije/nadstresnica2.jpg";
 import stepeniste1 from "@/assets/konstrukcije/stepeniste1.jpg";
 import stepeniste2 from "@/assets/konstrukcije/stepeniste2.jpg";
 import serviceImg2 from "@/assets/konstrukcije/konstrukcije2.jpeg";
+import ograda1 from "@/assets/konstrukcije/ograda1.jpeg";
+import ograda2 from "@/assets/konstrukcije/ograda2.jpeg";
+import ograda4 from "@/assets/konstrukcije/ograda4.jpeg";
+import ograda5 from "@/assets/konstrukcije/ograda5.jpeg";
+import ograda6 from "@/assets/konstrukcije/ograda6.jpeg";
+import ograda7 from "@/assets/konstrukcije/ograda7.jpeg";
 
 const celicneKonstrukcijeImages = [
   celicneKonstrukcije1,
@@ -24,6 +30,12 @@ const celicneKonstrukcijeImages = [
   nadstresnica2,
   stepeniste1,
   stepeniste2,
+  ograda1,
+  ograda2,
+  ograda4,
+  ograda5,
+  ograda6,
+  ograda7,
 ];
 
 const service2 = {

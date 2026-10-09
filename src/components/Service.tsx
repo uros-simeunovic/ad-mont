@@ -169,7 +169,7 @@ export const Service = ({ service, galleryImages }: { service: ServiceType; gall
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {imagePaths.slice(0, 10).map((path, index) => (
+            {imagePaths.map((path, index) => (
               <div
                 key={index}
                 className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer border-2 border-transparent hover:border-[#256eb6]/30 transition-all duration-300 hover:shadow-xl"

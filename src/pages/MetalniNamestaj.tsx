@@ -7,6 +7,7 @@ import metalniNamestaj3 from "@/assets/namestaj/namestaj3.jpg";
 import metalniNamestaj4 from "@/assets/namestaj/namestaj4.jpg";
 import metalniNamestaj5 from "@/assets/namestaj/namestaj5.jpg";
 import metalniNamestaj6 from "@/assets/namestaj/namestaj6.jpg";
+import metalniNamestaj8 from "@/assets/namestaj/namestaj8.jpeg";
 import serviceImg from "@/assets/namestaj/namestaj6.jpg";
 import serviceImg2 from "@/assets/namestaj/namestaj7.jpg";
 
@@ -17,6 +18,7 @@ const metalniNamestajImages = [
   metalniNamestaj4,
   metalniNamestaj5,
   metalniNamestaj6,
+  metalniNamestaj8,
 ];
 
 const service1 = {
